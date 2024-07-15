@@ -1,13 +1,14 @@
 import type { FastifyInstance } from 'fastify'
 
 import { confirmParticipants } from './trips/confirm-invite'
-import { createActivity } from './trips/create-activity'
+import { createActivity, createActivity } from './trips/create-activity'
 import { createInvite } from './trips/create-invites'
 import { createLink } from './trips/create-link'
 import { createTrip } from './trips/create-trip'
 import { getActivities } from './trips/get-activities'
 import { getInvites } from './trips/get-invites'
 import { getLinks } from './trips/get-links'
+import { getMyTrips } from './trips/get-my-trips'
 import { getParticipant } from './trips/get-participant'
 import { getParticipants } from './trips/get-participants'
 import { getTripDetails } from './trips/get-trip-details'
@@ -27,6 +28,7 @@ export async function routes(app: FastifyInstance) {
 
   app.register(confirmParticipants)
   app.register(createActivity)
+  app.register(getMyTrips)
   app.register(createInvite)
   app.register(createLink)
   app.register(createTrip)

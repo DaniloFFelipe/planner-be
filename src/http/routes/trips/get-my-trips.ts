@@ -8,25 +8,19 @@ export async function getMyTrips(app: FastifyInstance) {
   app
     .withTypeProvider<ZodTypeProvider>()
     .register(auth)
-    .get(
-      '/trips/me',
-      {
-        schema: {},
-      },
-      async (request) => {
-        const userId = await request.getCurrentUserId()
+    .get('/me/trips', async (request) => {
+      const userId = await request.getCurrentUserId()
 
-        const trips = await prisma.trip.findMany({
-          where: {
-            participants: {
-              some: {
-                user_id: userId,
-              },
+      const trips = await prisma.trip.findMany({
+        where: {
+          participants: {
+            some: {
+              user_id: userId,
             },
           },
-        })
+        },
+      })
 
-        return { trips }
-      },
-    )
+      return { trips }
+    })
 }
