@@ -49,7 +49,7 @@ export async function getInvites(app: FastifyInstance) {
           throw new BadRequestError('User is not on trip')
         }
 
-        return { participants: trip.invites }
+        return { invites: trip.invites }
       },
     )
 }

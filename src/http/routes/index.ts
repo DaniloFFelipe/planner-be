@@ -12,6 +12,7 @@ import { getMyTrips } from './trips/get-my-trips'
 import { getParticipant } from './trips/get-participant'
 import { getParticipants } from './trips/get-participants'
 import { getTripDetails } from './trips/get-trip-details'
+import { getUserInvites } from './trips/get-user-invites'
 import { rejectInvite } from './trips/reject-invite'
 import { revokeInvite } from './trips/revoke-invite'
 import { updateTrip } from './trips/update-trip'
@@ -26,6 +27,7 @@ export async function routes(app: FastifyInstance) {
   app.register(me)
   app.register(updateUserName)
 
+  app.register(getUserInvites)
   app.register(confirmParticipants)
   app.register(createActivity)
   app.register(getMyTrips)
