@@ -43,11 +43,9 @@ export async function createTrip(app: FastifyInstance) {
             ends_at,
             invites: {
               createMany: {
-                data: {
-                  ...emails_to_invite.map((email) => {
-                    return { email }
-                  }),
-                },
+                data: emails_to_invite.map((email) => {
+                  return { email }
+                }),
               },
             },
             participants: {
