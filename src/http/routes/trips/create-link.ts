@@ -42,7 +42,7 @@ export async function createLink(app: FastifyInstance) {
         if (!trip) {
           throw new BadRequestError('Trip not found')
         }
-        if (trip.participants.length >= 1) {
+        if (trip.participants.length < 1) {
           throw new BadRequestError('User is not on trip')
         }
 

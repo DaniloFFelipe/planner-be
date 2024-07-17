@@ -62,11 +62,11 @@ export async function createInvite(app: FastifyInstance) {
           throw new BadRequestError('User is not on trip')
         }
 
-        if (trip.invites.length >= 0) {
+        if (trip.invites.length > 0) {
           throw new BadRequestError('User already invited')
         }
 
-        if (trip.participants.length >= 0) {
+        if (trip.participants.length > 0) {
           throw new BadRequestError('User is already on the trip')
         }
 

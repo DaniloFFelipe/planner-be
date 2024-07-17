@@ -10,7 +10,7 @@ export async function confirmParticipants(app: FastifyInstance) {
   app
     .withTypeProvider<ZodTypeProvider>()
     .register(auth)
-    .get(
+    .post(
       '/invite/:inviteId/confirm',
       {
         schema: {
